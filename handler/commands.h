@@ -1,7 +1,8 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-#include "icommand.h"
+#include <string>
+#include "../core/ifaces.h"
 
 enum COMMAND
 {

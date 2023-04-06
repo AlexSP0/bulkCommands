@@ -4,7 +4,6 @@ set(CMAKE_AUTORCC ON)
 
 set(HEADERS
     handler.h
-    icommand.h
     commands.h
 )
 
@@ -14,3 +13,4 @@ set(SOURCES
 )
 
 add_library(handler STATIC ${HEADERS} ${SOURCES})
+target_link_libraries(handler core)
