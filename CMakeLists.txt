@@ -13,10 +13,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 REQUIRED COMPONENTS Core)
 
+add_subdirectory(handler)
+
 add_executable(bulkCommands
   main.cpp
 )
-target_link_libraries(bulkCommands Qt5::Core)
+target_link_libraries(bulkCommands Qt5::Core handler)
 
 install(TARGETS bulkCommands
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
