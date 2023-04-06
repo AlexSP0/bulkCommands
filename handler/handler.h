@@ -2,11 +2,12 @@
 #define HANDLER_H
 
 #include <memory>
+#include <string>
 
 class Handler
 {
 public:
-    Handler();
+    Handler(std::istream &input);
 
     ~Handler() = default;
 
@@ -18,11 +19,11 @@ public:
     bool isEof();
 
 private:
-    bool eof = false;
+    bool m_eof = false;
 
-    std::unique_ptr<std::string> data;
+    std::unique_ptr<std::string> m_data;
 
-    std::istream &input;
+    std::istream &m_input;
 };
 
 #endif

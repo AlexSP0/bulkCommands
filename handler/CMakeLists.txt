@@ -4,6 +4,7 @@ set(CMAKE_AUTORCC ON)
 
 set(HEADERS
     handler.h
+    icommand.h
     commands.h
 )
 
