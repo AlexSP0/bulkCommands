@@ -2,10 +2,10 @@
 #define BULKMODEL_H
 
 #include <../core/ifaces.h>
+#include <string>
 
-class BulkModel : public ICommandModel {
-
-
+class BulkModel : public ICommandModel
+{
     // ICommandModel interface
 public:
     void doOut();

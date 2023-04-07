@@ -1,6 +1,8 @@
 #ifndef IFACES_H
 #define IFACES_H
 
+#include <string>
+
 class ICommand
 {
 public:
@@ -11,9 +13,9 @@ public:
     virtual void doCommand(std::string command) = 0;
 };
 
-class ICommandModel {
+class ICommandModel
+{
 public:
-
     virtual ~ICommandModel();
 
     virtual void doOut() = 0;
@@ -23,7 +25,6 @@ public:
     virtual void nextLevel() = 0;
 
     virtual void previousLevel() = 0;
-
 };
 
 #endif

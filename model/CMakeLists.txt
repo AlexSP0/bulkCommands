@@ -4,10 +4,13 @@ set(CMAKE_AUTORCC ON)
 
 set(HEADERS
     bulkmodel.h
+    observable.h
+    observer.h
 )
 
 set(SOURCES
     bulkmodel.cpp
+    observable.cpp
 )
 
 add_library(model STATIC ${HEADERS} ${SOURCES})
