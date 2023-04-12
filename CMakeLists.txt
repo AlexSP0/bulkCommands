@@ -16,6 +16,7 @@ find_package(Qt5 REQUIRED COMPONENTS Core)
 add_subdirectory(handler)
 add_subdirectory(core)
 add_subdirectory(model)
+add_subdirectory(loggers)
 
 add_executable(bulkCommands
   main.cpp
