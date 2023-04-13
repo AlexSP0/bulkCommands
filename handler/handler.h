@@ -1,6 +1,8 @@
 #ifndef HANDLER_H
 #define HANDLER_H
 
+#include <iostream>
+#include <iterator>
 #include <memory>
 #include <string>
 
@@ -20,8 +22,6 @@ public:
 
 private:
     bool m_eof = false;
-
-    std::unique_ptr<std::string> m_data;
 
     std::istream &m_input;
 };

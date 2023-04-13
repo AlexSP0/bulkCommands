@@ -15,7 +15,7 @@ enum COMMAND
 class BaseCommand : public ICommand
 {
 public:
-    BaseCommand();
+    BaseCommand(ICommandModel *model);
 
     virtual ~BaseCommand();
 
@@ -23,12 +23,15 @@ public:
     void doCommand(std::string command) override;
 
     void doCommand() override;
+
+protected:
+    ICommandModel *m_model;
 };
 
 class BeginBlockCommand : public BaseCommand
 {
 public:
-    BeginBlockCommand();
+    BeginBlockCommand(ICommandModel *model);
     virtual ~BeginBlockCommand() = default;
 
     void doCommand() override;
@@ -37,7 +40,7 @@ public:
 class EndBlockCommand : public BaseCommand
 {
 public:
-    EndBlockCommand();
+    EndBlockCommand(ICommandModel *model);
     virtual ~EndBlockCommand() = default;
 
     void doCommand() override;
@@ -46,7 +49,7 @@ public:
 class EofCommand : public BaseCommand
 {
 public:
-    EofCommand();
+    EofCommand(ICommandModel *model);
     virtual ~EofCommand() = default;
 
     void doCommand() override;
@@ -55,8 +58,8 @@ public:
 class StoreDataCommand : public BaseCommand
 {
 public:
-    StoreDataCommand();
-    virtual ~StoreDataCommand = defult;
+    StoreDataCommand(ICommandModel *model);
+    virtual ~StoreDataCommand() = default;
 
     void doCommand();
 };
