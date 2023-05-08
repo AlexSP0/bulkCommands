@@ -29,3 +29,8 @@ void EofCommand::doCommand() {}
 StoreDataCommand::StoreDataCommand(ICommandModel *model)
     : BaseCommand(model)
 {}
+
+void StoreDataCommand::doCommand(std::string text)
+{
+
+}

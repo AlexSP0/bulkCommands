@@ -21,7 +21,7 @@ add_subdirectory(loggers)
 add_executable(bulkCommands
   main.cpp
 )
-target_link_libraries(bulkCommands Qt5::Core handler core model)
+target_link_libraries(bulkCommands Qt5::Core handler core model logger)
 
 install(TARGETS bulkCommands
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})

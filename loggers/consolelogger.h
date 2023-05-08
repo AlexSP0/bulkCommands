@@ -6,7 +6,9 @@
 class ConsoleLogger : public IObserver
 {
 public:
-    void process();
+    virtual ~ConsoleLogger() = default;
+
+    void process() override;
 };
 
 #endif

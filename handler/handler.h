@@ -6,10 +6,12 @@
 #include <memory>
 #include <string>
 
+#include "commandsfactory.h"
+
 class Handler
 {
 public:
-    Handler(std::istream &input);
+    Handler(std::unique_ptr<CommandsFactory> factory, std::istream &input);
 
     ~Handler() = default;
 
@@ -22,6 +24,8 @@ public:
 
 private:
     bool m_eof = false;
+
+    std::unique_ptr<CommandsFactory> m_cmdFactory;
 
     std::istream &m_input;
 };

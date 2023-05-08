@@ -1,10 +1,11 @@
 #ifndef BULKMODEL_H
 #define BULKMODEL_H
 
-#include <../core/ifaces.h>
+#include "../core/ifaces.h"
+#include "observable.h"
 #include <string>
 
-class BulkModel : public ICommandModel
+class BulkModel : public ICommandModel, public Observable
 {
     // ICommandModel interface
 public:

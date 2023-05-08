@@ -4,6 +4,8 @@
 class IObserver
 {
 public:
+    IObserver() = default;
+
     virtual ~IObserver() = default;
 
     virtual void process() = 0;

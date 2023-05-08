@@ -1,6 +1,5 @@
 #include "filelogger.h"
 
-void FileLogger::process()
-{
+FileLogger::~FileLogger() {}
 
-}
+void FileLogger::process() {}

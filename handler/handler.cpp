@@ -1,33 +1,40 @@
 #include "handler.h"
 
-Handler::Handler(std::istream &input)
-    : m_input(input)
+Handler::Handler(std::unique_ptr<CommandsFactory> factory, std::istream &input)
+    : m_cmdFactory(std::move(factory))
+    , m_input(input)
 {}
 
 void Handler::loop()
+{
+    while (!m_eof)
+    {
+        readCommand();
+    }
+}
+
+void Handler::readCommand()
 {
     std::string data = *std::istream_iterator<std::string>(m_input);
     m_eof            = m_input.eof();
 
     if (m_eof)
     {
-        //eof command
+        m_cmdFactory->run(COMMAND::END);
     }
-    else if (data == "{")
+    else if ("{" == data)
     {
-        //beginblock command
+        m_cmdFactory->run(COMMAND::BEGIN);
     }
-    else if (data == "}")
+    else if ("}" == data)
     {
-        //end block command
+        m_cmdFactory->run(COMMAND::END);
     }
     else
     {
-        //store command
+        m_cmdFactory->run(COMMAND::ADD, data);
     }
 }
-
-void Handler::readCommand() {}
 
 bool Handler::isEof()
 {

@@ -16,7 +16,7 @@ public:
 class ICommandModel
 {
 public:
-    virtual ~ICommandModel();
+    virtual ~ICommandModel() = default;
 
     virtual void doOut() = 0;
 

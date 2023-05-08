@@ -61,7 +61,7 @@ public:
     StoreDataCommand(ICommandModel *model);
     virtual ~StoreDataCommand() = default;
 
-    void doCommand();
+    void doCommand(std::string text);
 };
 
 #endif

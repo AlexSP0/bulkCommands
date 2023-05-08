@@ -6,7 +6,10 @@
 class FileLogger : public IObserver
 {
 public:
-    void process();
+    FileLogger() = default;
+
+    ~FileLogger();
+    virtual void process() override;
 };
 
 #endif
