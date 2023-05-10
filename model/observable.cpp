@@ -4,11 +4,11 @@ Observable::Observable()
     : m_observers({})
 {}
 
-void Observable::notify()
+void Observable::notify(const IModelIterator &model)
 {
     for (auto observer : m_observers)
     {
-        observer->process();
+        observer->process(model);
     }
 }
 

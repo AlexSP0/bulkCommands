@@ -9,7 +9,7 @@ public:
     FileLogger() = default;
 
     ~FileLogger();
-    virtual void process() override;
+    virtual void process(const IModelIterator &model) override;
 };
 
 #endif

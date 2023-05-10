@@ -6,6 +6,8 @@ set(HEADERS
     bulkmodel.h
     observable.h
     observer.h
+    imodeliterator.h
+    modeliterator.h
 )
 
 set(SOURCES

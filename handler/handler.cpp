@@ -20,7 +20,7 @@ void Handler::readCommand()
 
     if (m_eof)
     {
-        m_cmdFactory->run(COMMAND::END);
+        m_cmdFactory->run(COMMAND::EF);
     }
     else if ("{" == data)
     {

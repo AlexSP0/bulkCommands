@@ -8,7 +8,21 @@
 
 int main(int argc, char *argv[])
 {
-    BulkModel bModel;
+    //    if (argc != 2)
+    //    {
+    //        std::cout << "Usage: bulk N \n where N is size of block";
+    //        return 1;
+    //    }
+
+    //int commandsNumber = atoll(argv[1]);
+    int commandsNumber = 3;
+    if (commandsNumber <= 0)
+    {
+        std::cout << "Commands number must be positive";
+        return 1;
+    }
+
+    BulkModel bModel(commandsNumber);
 
     std::shared_ptr<IObserver> fileLogger    = std::make_shared<FileLogger>();
     std::shared_ptr<IObserver> consoleLogger = std::make_shared<ConsoleLogger>();
@@ -18,12 +32,14 @@ int main(int argc, char *argv[])
 
     std::unique_ptr<CommandsFactory> cmdFactory = std::make_unique<CommandsFactory>();
 
-    cmdFactory->addCommand(COMMAND::BEGIN, std::unique_ptr<BeginBlockCommand>());
-    cmdFactory->addCommand(COMMAND::END, std::unique_ptr<EndBlockCommand>());
-    cmdFactory->addCommand(COMMAND::ADD, std::unique_ptr<StoreDataCommand>());
-    cmdFactory->addCommand(COMMAND::EF, std::unique_ptr<EofCommand>());
+    cmdFactory->addCommand(COMMAND::BEGIN, std::make_unique<BeginBlockCommand>(&bModel));
+    cmdFactory->addCommand(COMMAND::END, std::make_unique<EndBlockCommand>(&bModel));
+    cmdFactory->addCommand(COMMAND::ADD, std::make_unique<StoreDataCommand>(&bModel));
+    cmdFactory->addCommand(COMMAND::EF, std::make_unique<EofCommand>(&bModel));
 
     Handler handler(std::move(cmdFactory), std::cin);
+
+    handler.loop();
 
     return 0;
 }

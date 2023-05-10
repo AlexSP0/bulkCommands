@@ -1,7 +1,9 @@
 #ifndef OBSERVABLE_H
 #define OBSERVABLE_H
 
+#include "imodeliterator.h"
 #include "observer.h"
+
 #include <list>
 #include <memory>
 
@@ -12,7 +14,7 @@ public:
 
     virtual ~Observable() = default;
 
-    void notify();
+    void notify(const IModelIterator &model);
 
     void subscribe(std::shared_ptr<IObserver> observer);
 
